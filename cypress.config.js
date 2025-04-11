@@ -2,6 +2,7 @@ const { defineConfig } = require("cypress");
 
 module.exports = defineConfig({
   projectId: '8ury4z',
+  video: true, //enabling to record videos
 
   // defaultCommandTimeout: 8000, // 👈 sets default command timeout to 8 seconds
   e2e: {

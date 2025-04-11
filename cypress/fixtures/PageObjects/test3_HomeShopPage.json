@@ -1,0 +1,14 @@
+{
+    "name": "Ayesha",
+    "email": "ayesha123@gmail.com",
+    "password": "Password@234",
+    "gender": "Female",
+    "dob": "2001-09-26",
+    "productName": "Blackberry",
+    "deliveryLocation": "India",
+    "productNames": [
+        "Samsung Note 8",
+        "Nokia Edge",
+        "iphone"
+    ]
+}

@@ -1,0 +1,28 @@
+name: Cypress Tests
+
+on: [push]  # ⬅️ Triggers on every push to GitHub
+
+jobs:
+  cypress-run:
+    runs-on: ubuntu-latest  # ⬅️ Use Ubuntu environment for CI
+
+    strategy:
+      fail-fast: false
+      matrix:
+        containers: [1, 2]   # ⬅️ Run tests in parallel using 2 machines
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4  # ⬅️ Step 1: Get your repo's code
+
+      - name: Cypress run
+        uses: cypress-io/github-action@v6  # ⬅️ Step 2: Run Cypress using the official action
+        with:
+          start: npm start               # ⬅️ Start your dev server (e.g., React/Next app)
+          wait-on: 'http://localhost:3000'  # ⬅️ Wait for your app to be up
+          record: true                   # ⬅️ Record to Cypress Cloud
+          parallel: true                 # ⬅️ Enable parallel test execution
+
+        env:
+          CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}  # ⬅️ Use your record key from secrets
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}              # ⬅️ Built-in token for GitHub access

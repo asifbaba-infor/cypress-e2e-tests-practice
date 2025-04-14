@@ -9,6 +9,11 @@ module.exports = defineConfig({
     URL_Angular: 'https://rahulshettyacademy.com/angularpractice/',
   },
 
+  retries: {
+    "runMode": 1,
+    "openMode": 1
+  },
+
   e2e: {
     defaultCommandTimeout: 8000,
     setupNodeEvents(on, config) {

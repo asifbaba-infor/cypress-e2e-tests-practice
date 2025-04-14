@@ -9,7 +9,8 @@
     "headed_test_scripts": "npx cypress run --headed",
     "test_scripts_headed": "npm run test_scripts -- --headed",
     "chromeTest": "npm run test_scripts --browser chrome --headed",
-    "recordDashBoardTest": "npx cypress run --record --key f80a94f5-ee41-483a-967d-802c95fbfe35"
+    "recordDashBoardTest": "npx cypress run --record --key f80a94f5-ee41-483a-967d-802c95fbfe35",
+    "pacticeSpec": "npm run test_scripts -- --spec \"cypress/e2e/Practice/*\" "
   },
   "author": "asif",
   "license": "ISC",

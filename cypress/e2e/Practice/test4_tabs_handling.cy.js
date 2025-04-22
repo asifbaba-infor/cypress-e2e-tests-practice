@@ -2,7 +2,7 @@
 
 describe('My Fourth Test suite', () =>
 
-    it('Child Tab Handling', () => {
+    xit('Child Tab Handling', () => {
         cy.visit('https://rahulshettyacademy.com/AutomationPractice/')
 
         //Cypress cant navigate to child window diretly

@@ -1,4 +1,4 @@
-/// <reference types="Cypress" />
+/// <reference types="cypress" />
 describe('First Test Suite', function () {
 
     it('Visit page search ca and add 2nd item(1 index)', function () {
@@ -55,7 +55,7 @@ describe('First Test Suite', function () {
         })
     })
 
-    it.only('Visit page search ca and add two items and proceed to check out', function () {
+    it('Visit page search ca and add two items and proceed to check out', function () {
         //steps
         cy.visit("https://rahulshettyacademy.com/seleniumPractise/#/")
         cy.get('input.search-keyword').type('ca')

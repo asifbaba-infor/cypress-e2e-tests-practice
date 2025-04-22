@@ -12,7 +12,7 @@ describe('Hooks in Framework', function () {
     })
 
 
-    it.only('First Tc: Home Page validation from PageObjects', function () {
+    it('First Tc: Home Page validation from PageObjects', function () {
 
         const homePage = new HomePage()   //creating object of the "HomePage"
 

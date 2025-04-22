@@ -45,7 +45,7 @@ describe('My Second Test Suite', function () {
 
     })
 
-    it.only('Radio buttons', function () {
+    it('Radio buttons', function () {
         cy.visit('https://rahulshettyacademy.com/AutomationPractice/')
         cy.get('label[for="radio1"]>input').click()  //using 'click'
         cy.get('[for="radio1"]>input').should('be.checked').should('have.value', 'radio1')  //verifying radiobtn is checked and validating 'value' with multiple should 

@@ -2,7 +2,7 @@
 
 describe('Hooks in Framework', function () {
 
-    before(function () {
+    beforeEach(function () {
         //runs once before all tests in the block
 
         cy.fixture('Practice/test9_Framework_Data').then(function (data) { //passing fixture file name in Practice, and storing "data" object
@@ -26,7 +26,7 @@ describe('Hooks in Framework', function () {
 
 
 
-    it.only('second Tc: Valiadtion in "Two-way Data Binding" field, length in "Name" field , radio btn disabled', function () {
+    it('second Tc: Valiadtion in "Two-way Data Binding" field, length in "Name" field , radio btn disabled', function () {
 
         cy.visit('https://rahulshettyacademy.com/angularpractice/')
 

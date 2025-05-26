@@ -1,5 +1,5 @@
 /// <reference types="cypress"/>
-import ShopPage from "../pageObjects/ShopPage"
+import ShopPage from "../../support/pageObjects/ShopPage"
 
 describe('Hooks', function () {
 

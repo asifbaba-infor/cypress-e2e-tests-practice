@@ -12,5 +12,7 @@ describe('My Sixth Test Suite', () => {
         cy.contains('Top').click()  // 'contains' used to find element based on text
 
         cy.url().should('include', '#top')
+
+        cy.contains('Reload').click({ force: true }); //another way force clicks hidden elements
     })
 })

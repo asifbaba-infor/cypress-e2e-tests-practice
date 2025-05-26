@@ -24,10 +24,11 @@ describe('My Second Test Suite', function () {
 
     it('Dynamic Dropdowns', function () {
         cy.visit('https://rahulshettyacademy.com/AutomationPractice/')
-        cy.get('input#autocomplete').type('ind')  //By typing 'ind' we get few suggestions
+        cy.get('input#autocomplete').type('ind')  //By typing 'ind' we get few(3) suggestions
         cy.get('li.ui-menu-item div').each(($el, index, $list) => { //traverse through each option
             if ($el.text() == 'India') {    //slecting 'India' as option
-                $el.trigger('click');
+                // $el.trigger('click');
+                cy.wrap($el).click();
             }
         })
         cy.get('input#autocomplete').should('have.value', 'India')

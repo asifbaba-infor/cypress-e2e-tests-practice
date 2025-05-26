@@ -18,7 +18,8 @@ describe('First Test Suite', function () {
         cy.get('.products').find('.product').each(($el, index, $list) => {
             const textVeg = $el.find('h4.product-name').text()   //extracts the text
             if (textVeg.includes('Cashews')) {    //giving specific item
-                $el.find('button').trigger('click');
+                cy.wrap($el).find('button').click()
+                // $el.find('button').trigger('click');
             }
         })
     })

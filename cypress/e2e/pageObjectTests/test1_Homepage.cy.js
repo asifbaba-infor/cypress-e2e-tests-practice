@@ -1,5 +1,5 @@
 /// <reference types="cypress"/>
-import HomePage from "../pageObjects/HomePage"
+import HomePage from "../../support/pageObjects/HomePage"
 
 describe('Hooks in Framework', function () {
 

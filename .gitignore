@@ -13,8 +13,8 @@ cypress/.cache/
 mochawesome-report/
 mochawesome.json
 
-# Ignore package-lock.json (for version control, it may vary)
-package-lock.json
+# Ignore only node_modules/.package-lock.json
+node_modules/.package-lock.json
 
 # Ignore system files
 .DS_Store
@@ -22,4 +22,3 @@ Thumbs.db
 
 # Ignore environment configuration files (if you want to keep them private)
 *.env
-.package-lock.json

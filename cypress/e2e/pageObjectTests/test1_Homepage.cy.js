@@ -16,9 +16,10 @@ describe('Hooks in Framework', function () {
 
         const homePage = new HomePage()   //creating object of the "HomePage"
 
-        cy.visit('https://rahulshettyacademy.com/angularpractice/')
+        // cy.visit('https://rahulshettyacademy.com/angularpractice/')
 
         //Getting the Name field from pageObjects, typing the Data from fixtures json data
+        homePage.goTo(this.data.url)
         homePage.getName().type(this.data.name)
 
         homePage.getEmail().type(this.data.email)

@@ -1,5 +1,9 @@
 class HomePage {
 
+    goTo(url) {
+        return cy.visit(url)
+    }
+
     getName() {
         return cy.get('input[name="name"]:nth-child(2)')
     }

@@ -11,7 +11,11 @@ module.exports = defineConfig({
   env: {
     Base_URL: 'https://rahulshettyacademy.com',
     URL_Angular: 'https://rahulshettyacademy.com/angularpractice/',
-    // token:'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODM3MGJlNDgxYTIwNjk1MzA0ZTQzMjkiLCJ1c2VyRW1haWwiOiJhc2lmYmFiYS5tb2hhbW1hZEBpbmZvci5jb20iLCJ1c2VyTW9iaWxlIjo5MzkwMjUyNjM0LCJ1c2VyUm9sZSI6ImN1c3RvbWVyIiwiaWF0IjoxNzQ4NDk1MjcwLCJleHAiOjE3ODAwNTI4NzB9.MChMjkQwzYJv2yUDj9OjZhhmFJ_onig8UN78jlFl6YU'
+    // Add environment variables for credentials - DO NOT put actual values here
+    // These should be set via cypress.env.json (gitignored) or CI/CD variables
+    USER_EMAIL: process.env.USER_EMAIL || 'test@example.com',
+    USER_PASSWORD: process.env.USER_PASSWORD || 'dummypassword'
+    // Do not hardcode JWT tokens here - they will be generated during test execution
   },
 
   retries: {

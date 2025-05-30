@@ -9,8 +9,8 @@ Cypress.Commands.add("selectProduct", (productName) => {
 
 Cypress.Commands.add("loginAPI", () => {
     cy.request("POST", "https://rahulshettyacademy.com/api/ecom/auth/login", {
-        userEmail: "asifbaba.mohammad@infor.com",
-        userPassword: "Asif@26901"
+        userEmail: Cypress.env('USER_EMAIL'),
+        userPassword: Cypress.env('USER_PASSWORD')
     }).then(function (response) {
         expect(response.status).to.eq(200)
         //setting "token" in cypress environment(cypress.config.js), so we can use the token globally anywhere in the TEST

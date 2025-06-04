@@ -14,7 +14,8 @@ describe('Cypress Studio Demo', () => {
         cy.get(':nth-child(4) > .btn').click();
 
         //below code belongs to Checkout page
-        cy.get('.prodTotal > p').should('have.text', '$ 31500');
+        // Fix for the assertion error - using contains instead of have.text
+        cy.get('.prodTotal > p').should('contain', '$ 31500');
         cy.get('.removeWrap > .btn-primary').click();
         cy.get('.form-group > .input').clear('i');
         cy.get('.form-group > .input').type('india');

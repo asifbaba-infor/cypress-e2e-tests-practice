@@ -4,9 +4,9 @@ describe('Cypress Studio Demo', () => {
         //below code belongs to login page
         cy.visit('https://rahulshettyacademy.com/client');
         cy.get('#userEmail').clear();
-        cy.get('#userEmail').type('asifbaba.mohammad@infor.com');
+        cy.get('#userEmail').type(Cypress.env('USER_EMAIL'));
         cy.get('#userPassword').clear('A');
-        cy.get('#userPassword').type('Asif@26901');
+        cy.get('#userPassword').type(Cypress.env('USER_PASSWORD'));
         cy.get('#login').click();
         //below code belongs to Shopping page
         cy.get(':nth-child(2) > .card > .card-body > .w-10').click();

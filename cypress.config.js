@@ -1,6 +1,7 @@
 const { defineConfig } = require('cypress');
 const fs = require('fs');
 const excelToJson = require('convert-excel-to-json');
+const ExcelJs = require('exceljs');
 
 module.exports = defineConfig({
   projectId: '8ury4z',
@@ -27,6 +28,20 @@ module.exports = defineConfig({
     setupNodeEvents(on, config) {
       require('cypress-mochawesome-reporter/plugin')(on); // 👈 required setup
 
+      // Helper function to find text in Excel worksheet
+      const readExcel = (worksheet, searchText) => {
+        let result = { row: -1, column: -1 };
+        worksheet.eachRow((row, rowNumber) => {
+          row.eachCell((cell, colNumber) => {
+            if (cell.value === searchText) {
+              result.row = rowNumber;
+              result.column = colNumber;
+            }
+          });
+        });
+        return result;
+      }
+
       // Mock database tasks
       on('task', {
         'sqlServer:execute': (query) => {
@@ -41,30 +56,57 @@ module.exports = defineConfig({
           }
           return [];
         },
-        
+
         excelToJsonConverter: (filePath) => {
           try {
             // Basic configuration that works with most Excel files
             const result = excelToJson({
               source: fs.readFileSync(filePath)
             });
-            
+
             // Get the first sheet name
             const firstSheetName = Object.keys(result)[0];
-            
+
             // Create a simple array with the data
             const data = result[firstSheetName] || [];
-            
+
             // Return a structure with data property
             return { data };
           } catch (error) {
             console.error('Excel conversion error:', error);
             return { data: [] };
           }
+        },
+
+        async WriteExcelTest({ searchText, replaceText, change, filepath }) {
+          try {
+            const workbook = new ExcelJs.Workbook();
+            await workbook.xlsx.readFile(filepath);
+
+            const worksheet = workbook.getWorksheet('Sheet1');
+            const result = readExcel(worksheet, searchText);
+
+            // Check if the search text was found before updating
+            if (result.row > 0 && result.column > 0) {
+              const cell = worksheet.getCell(result.row, result.column + change.colChange);
+              cell.value = replaceText;
+              await workbook.xlsx.writeFile(filepath);
+              console.log('Excel file updated successfully');
+              return true;
+            } else {
+              console.log(`Search text "${searchText}" not found in the Excel file.`);
+              return false;
+            }
+          } catch (error) {
+            console.error('Error updating Excel file:', error);
+            return false;
+          }
         }
       });
 
       return config;
-    }
+    },
+    experimentalStudio: true,
+    specPattern: 'cypress/e2e/**/*.{js,jsx,ts,tsx,feature}'
   }
 });

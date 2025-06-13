@@ -1,5 +1,5 @@
 describe('Cypress Studio Demo', () => {
-    it('create new transaction', () => {
+    it('Create new transaction', () => {
         /* ==== Generated with Cypress Studio ==== */
         //below code belongs to login page
         cy.visit('https://rahulshettyacademy.com/client');

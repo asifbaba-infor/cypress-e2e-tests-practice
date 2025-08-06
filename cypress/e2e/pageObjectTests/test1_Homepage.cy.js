@@ -6,7 +6,7 @@ describe('Hooks in Framework', function () {
     before(function () {
         //runs once before all tests in the block
 
-        cy.fixture('PageObjects/test1_Homepage').then(function (data) { //passing fixture file name in PageObjects, and storing "data" object
+        cy.fixture('PageObjects/test1_Homepage').then(function (data) { // passing fixture file name in PageObjects, and storing "data" object
             this.data = data //storing local 'data' into 'this.data' globally to access outside as well
         })
     })
@@ -32,7 +32,7 @@ describe('Hooks in Framework', function () {
 
         homePage.getEntrepreneur().should('be.disabled') //validation on  entrepreneur 'radioBtn' disabled or not
 
-        homePage.getDateofBirth().type(this.data.dob)   
+        homePage.getDateofBirth().type(this.data.dob)
 
         homePage.getTwowayDataBinding().should('have.value', this.data.name) //validation on entered 'Name' in binding field
 

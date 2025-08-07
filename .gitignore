@@ -23,3 +23,10 @@ Thumbs.db
 # Ignore environment configuration files (if you want to keep them private)
 *.env
 cypress.env.json
+
+# Ignore Cucumber reports and generated files
+cypress/cucumberReports/
+cypress/downloads/
+
+# Ignore executable files
+*.exe

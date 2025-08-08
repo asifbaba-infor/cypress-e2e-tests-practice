@@ -127,7 +127,7 @@ module.exports = defineConfig({
     setupNodeEvents,
     experimentalStudio: true,
     specPattern: 'cypress/e2e/**/*.{js,jsx,ts,tsx,feature}',
-    excludeSpecPattern: 'cypress/e2e/**/stepDef.js'
+    excludeSpecPattern: 'cypress/e2e/BDD/eCommerce/eCommStepDef.js'
   }
 });
 
